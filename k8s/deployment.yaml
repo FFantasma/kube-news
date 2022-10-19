@@ -44,6 +44,7 @@ kind: Deployment
 metadata:
   name: web
 spec:
+  replicas: 4
   selector:
     matchLabels:
       app: web
@@ -54,14 +55,14 @@ spec:
     spec:
       containers:
         - name: web
-          image: gustavohsnascimento/kube-news:v1
+          image: gustavohsnascimento/kube-news:v2
           ports:
           - containerPort: 8080
           env:
           - name: DB_DATABASE
-            value: "kubedevnews"
+            value: "kubebews"
           - name: DB_USERNAME
-            value: "kubedevnews"  
+            value: "kubebews"  
           - name: DB_PASSWORD
             value: "Pg#123"  
           - name: DB_HOST
